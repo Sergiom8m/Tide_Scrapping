@@ -31,7 +31,7 @@ copernicusmarine.subset(
     force_download=True,
     subset_method="strict",
     disable_progress_bar=True,
-    output_directory="C:/Users/jlupiola/Desktop/tide_data/predictions/copernicus/data"
+    output_directory="//192.168.0.250/intellialert/Vigilancia/Marea/predictions/copernicus/data"
 )
 
 # Guardar fecha de inicio y fin en formato 2024-10-08 
@@ -39,7 +39,7 @@ fechaInicio = fechaHoraInicio.strftime('%Y-%m-%d')
 fechaFin = fechaHoraFin.strftime('%Y-%m-%d')
 
 # Cargar el dataset
-dataset = Dataset(f'C:/Users/jlupiola/Desktop/tide_data/predictions/copernicus/data/cmems_mod_ibi_phy_anfc_0.027deg-2D_PT1H-m_zos-vo_3.11W_43.36N_{fechaInicio}-{fechaFin}.nc', 'r')  
+dataset = Dataset(f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/copernicus/data/cmems_mod_ibi_phy_anfc_0.027deg-2D_PT1H-m_zos-vo_3.11W_43.36N_{fechaInicio}-{fechaFin}.nc', 'r')  
 
 zos = dataset.variables['zos'][:].data.flatten()
 fecha = dataset.variables['time'][:].data.flatten()
@@ -53,10 +53,10 @@ fecha = [datetime.datetime(1950, 1, 1) + datetime.timedelta(hours=float(t)) for 
 df = pd.DataFrame({'Fecha': fecha, 'Nivel': zos})
 
 # Guardar DataFrame en CSV
-df.to_csv(f'C:/Users/jlupiola/Desktop/tide_data/predictions/copernicus/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv', index=False)
+df.to_csv(f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/copernicus/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv', index=False)
 
 # Cerrar el dataset
 dataset.close()
 
 # Borrar el archivo .nc
-os.remove(f'C:/Users/jlupiola/Desktop/tide_data/predictions/copernicus/data/cmems_mod_ibi_phy_anfc_0.027deg-2D_PT1H-m_zos-vo_3.11W_43.36N_{fechaInicio}-{fechaFin}.nc')
+os.remove(f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/copernicus/data/cmems_mod_ibi_phy_anfc_0.027deg-2D_PT1H-m_zos-vo_3.11W_43.36N_{fechaInicio}-{fechaFin}.nc')

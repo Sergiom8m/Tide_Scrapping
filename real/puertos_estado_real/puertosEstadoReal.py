@@ -74,7 +74,7 @@ df_nuevos = pd.DataFrame(datos.items(), columns=['Fecha', 'Nivel Medio'])
 # Intentar cargar el CSV existente para agregar nuevos datos
 try:
     # Leer el CSV existente
-    df_existente = pd.read_csv('C:/Users/jlupiola/Desktop/tide_data/real/puertos_estado_real/data/datos.csv')
+    df_existente = pd.read_csv('//192.168.0.250/intellialert/Vigilancia/Marea/real/puertos_estado_real/data/datos.csv')
     
     # Concatenar los nuevos datos, evitando duplicados de 'Fecha'
     df_final = pd.concat([df_nuevos, df_existente]).drop_duplicates(subset='Fecha', keep='first')
@@ -86,4 +86,4 @@ except FileNotFoundError:
 df_final = df_final.sort_values(by='Fecha', ascending=False)
 
 # Guardar los datos en el archivo CSV
-df_final.to_csv(f'C:/Users/jlupiola/Desktop/tide_data/real/puertos_estado_real/data/datos.csv', index=False)
+df_final.to_csv(f'//192.168.0.250/intellialert/Vigilancia/Marea/real/puertos_estado_real/data/datos.csv', index=False)

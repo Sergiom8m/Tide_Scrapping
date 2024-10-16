@@ -98,7 +98,7 @@ if __name__ == '__main__':
         data_rows.extend(daily_data_rows)  # Agrega las filas del día actual a la lista general
 
     # Guardar en un archivo CSV
-    csv_filename = f'C:/Users/jlupiola/Desktop/tide_data/predictions/puertos_estado/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv'
+    csv_filename = f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/puertos_estado/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv'
     with open(csv_filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         # Escribir los encabezados

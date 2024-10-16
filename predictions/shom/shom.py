@@ -91,7 +91,7 @@ for line in rendered_html:
             datos[fecha_str]['nivel'] = medicion.strip()
 
 # Guardar en un archivo CSV
-csv_filename = f'C:/Users/jlupiola/Desktop/tide_data/predictions/shom/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv'
+csv_filename = f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/shom/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv'
 with open(csv_filename, mode='w', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Fecha', 'Marea', 'Nivel']) 

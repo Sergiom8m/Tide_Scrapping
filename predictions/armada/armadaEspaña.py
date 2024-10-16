@@ -41,7 +41,7 @@ for i in range(7):
     fecha_inicial += timedelta(days=1)
 
 # Guardar todos los datos recolectados en el archivo CSV
-with open(f'C:/Users/jlupiola/Desktop/tide_data/predictions/armada/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv', mode='w', newline='', encoding='utf-8') as file:
+with open(f'//192.168.0.250/intellialert/Vigilancia/Marea/predictions/armada/data/datos_{time.strftime("%Y-%m-%d_%H-%M")}.csv', mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
     # Escribir el encabezado
     writer.writerow(['Fecha', 'Nivel'])

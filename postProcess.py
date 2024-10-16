@@ -12,7 +12,7 @@ def interpolar_csv(file_path, output_path, data_source):
     if data_source.lower() == 'armada':
         df['Nivel'] = df['Nivel'] - 2.359
     elif data_source.lower() == 'puertos_estado':
-        df['Nivel'] = df['Nivel'] - 2.359
+        df['Nivel'] = df['Nivel'] - 2.359 + 0.16
     elif data_source.lower() == 'copernicus':
         df['Nivel'] = df['Nivel'] + 0.3225
     elif data_source.lower() == 'shom':
@@ -44,7 +44,7 @@ for input_csv in latest_files:
     data_source = os.path.basename(os.path.dirname(os.path.dirname(input_csv))).lower()  # Nombre de la carpeta anterior a 'data'
     
     # Crear el nombre de salida
-    output_csv = f'C:/Users/365N/Desktop/tide_data/processed/{data_source}_{os.path.basename(input_csv)}'
+    output_csv = f'C:/Users/365N/Desktop/tide_data/processed/{data_source}.csv'
     
     # Llamar a la función de interpolación
     interpolar_csv(input_csv, output_csv, data_source)
