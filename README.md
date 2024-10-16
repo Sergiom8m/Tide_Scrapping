@@ -16,3 +16,6 @@ Este repositorio contiene un código que recopila datos de diferentes fuentes y 
 - **Cálculo de Errores**: 
   - Módulo para calcular y analizar errores en las predicciones de nivel del mar.
 
+- **Integración con Firestore**:
+  - Script simple para procesar lso ficheros csv y cargarlos sobre una base de datos remota de Firebase.
+
